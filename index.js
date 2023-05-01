@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!window.difficulty) {
             return
         }
-        window.location.pathname = './dummy.html';
+        document.querySelector('.container').innerHTML = `<div>Пустышка</div>`;
     }
     diffBox.addEventListener('click', difficultyChoice);
     diffButton.addEventListener('click', gameStart);
