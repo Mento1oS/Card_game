@@ -1,0 +1,27 @@
+{
+  "name": "site1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -p 3004"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mento1oS/Card_game.git"
+  },
+  "author": "Mentolos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mento1oS/Card_game/issues"
+  },
+  "homepage": "https://github.com/Mento1oS/Card_game#readme",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "axios": "^1.4.0"
+  }
+}
