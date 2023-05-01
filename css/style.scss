@@ -97,6 +97,13 @@ body {
             cursor: pointer;
         }
     }
+
+    &__active {
+        box-shadow: inset 0px 0px 1px 1px black;
+        cursor: pointer;
+        color: #000000;
+        background: #F0F0F1;
+    }
 }
 
 .button__container {

@@ -93,6 +93,12 @@ body {
   box-shadow: inset 0px 0px 4px 4px rgba(255, 255, 255, 0.366);
   cursor: pointer;
 }
+.diff__active {
+  box-shadow: inset 0px 0px 1px 1px black;
+  cursor: pointer;
+  color: #000000;
+  background: #F0F0F1;
+}
 
 .button__container {
   text-align: center;
