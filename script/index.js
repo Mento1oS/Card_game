@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    window.app = document.querySelector(".app");
     const diffBox = document.querySelector(".diff__container");
     const diffButton = document.querySelector(".diff__button");
     let currentDifficultyBlock;
@@ -25,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!window.difficulty) {
             return;
         }
-        document.querySelector(".container").innerHTML = `<div>Пустышка</div>`;
+        window.visibleCardsComponent();
     };
     diffBox.addEventListener("click", difficultyChoice);
     diffButton.addEventListener("click", gameStart);
