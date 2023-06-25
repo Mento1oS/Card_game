@@ -1,17 +1,17 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const diffBox = document.querySelector('.diff__container');
-    const diffButton = document.querySelector('.diff__button');
+document.addEventListener("DOMContentLoaded", () => {
+    const diffBox = document.querySelector(".diff__container");
+    const diffButton = document.querySelector(".diff__button");
     let currentDifficultyBlock;
     const removeActivity = (block) => {
         if (!block) {
             return;
         }
-        block.classList.remove('diff__active');
-    }
+        block.classList.remove("diff__active");
+    };
     const addActivity = (block) => {
-        block.classList.add('diff__active');
+        block.classList.add("diff__active");
         window.difficulty = block.dataset.difficulty;
-    }
+    };
     const difficultyChoice = (event) => {
         const target = event.target;
         if (target === diffBox) {
@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const gameStart = () => {
         if (!window.difficulty) {
-            return
+            return;
         }
-        document.querySelector('.container').innerHTML = `<div>Пустышка</div>`;
-    }
-    diffBox.addEventListener('click', difficultyChoice);
-    diffButton.addEventListener('click', gameStart);
+        document.querySelector(".container").innerHTML = `<div>Пустышка</div>`;
+    };
+    diffBox.addEventListener("click", difficultyChoice);
+    diffButton.addEventListener("click", gameStart);
 });
