@@ -1,4 +1,5 @@
-import startingScreenComponent from "../index.js";
+import startingScreenComponent from "../index";
+declare const window: any;
 const hiddenCardsComponent = () => {
   window.app.innerHTML = `<div class="cardTable center">
     <header class="header">
@@ -20,9 +21,11 @@ const hiddenCardsComponent = () => {
 </div>`;
   const container = document.querySelector(".cards__container");
   let attempt = 0;
-  let startSrc;
-  const indexArray = [];
-  const fillDesk = (number) => {
+  let startSrc: string;
+  const minElement = document.querySelector(".min");
+  const secElement = document.querySelector(".sec");
+  const indexArray: number[] = [];
+  const fillDesk = (number: number) => {
     for (let i = 0; i < number; i++) {
       const elem = document.createElement("img");
       elem.setAttribute("src", `./static/img/рубашка.png`);
@@ -30,7 +33,21 @@ const hiddenCardsComponent = () => {
       container.appendChild(elem);
     }
   };
-  const checker = (event) => {
+  const secIncrease = () => {
+    Number(secElement.textContent) > 8
+      ? (secElement.textContent = String(
+          (Number(secElement.textContent) + 1) % 60
+        ))
+      : (secElement.textContent =
+          "0" + String(Number(secElement.textContent) + 1));
+  };
+  const minIncrease = () => {
+    Number(minElement.textContent) > 8
+      ? (minElement.textContent = String(Number(minElement.textContent) + 1))
+      : (minElement.textContent =
+          "0" + String(Number(minElement.textContent) + 1));
+  };
+  const checker = (event: any) => {
     if (event.target.tagName !== "IMG") {
       return;
     }
@@ -48,12 +65,24 @@ const hiddenCardsComponent = () => {
     } else {
       if (startSrc === window.gameArray[index]) {
         if (attempt === window.gameArray.length) {
-          alert("Поздравляю, Вы выиграли");
+          clearInterval(secTimer);
+          clearInterval(minTimer);
+          document.querySelector(".winPopup__time").textContent =
+            minElement.textContent + "." + secElement.textContent;
+          document
+            .querySelector(".winPopup__wrapper")
+            .classList.remove("hidden");
         }
         return;
       } else {
+        clearInterval(secTimer);
+        clearInterval(minTimer);
         container.removeEventListener("click", checker);
-        alert("Вы проиграли");
+        document.querySelector(".lossPopup__time").textContent =
+          minElement.textContent + "." + secElement.textContent;
+        document
+          .querySelector(".lossPopup__wrapper")
+          .classList.remove("hidden");
       }
     }
   };
@@ -70,9 +99,13 @@ const hiddenCardsComponent = () => {
     default:
       break;
   }
+  const secTimer = setInterval(secIncrease, 1000);
+  const minTimer = setInterval(minIncrease, 60000);
   container.addEventListener("click", checker);
   document.querySelector(".replay__button").addEventListener("click", () => {
     startingScreenComponent();
+    clearInterval(secTimer);
+    clearInterval(minTimer);
   });
 };
 export default hiddenCardsComponent;

@@ -8,7 +8,8 @@
     "start": "webpack-dev-server --open",
     "format": "prettier --write ./script/",
     "prepare": "husky install",
-    "build": "cross-env NODE_ENV=production webpack"
+    "build": "cross-env NODE_ENV=production webpack",
+    "lint:ts": "tsc ––noEmit"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,8 @@
     "husky": "^8.0.3",
     "mini-css-extract-plugin": "^2.7.6",
     "style-loader": "^3.3.3",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
