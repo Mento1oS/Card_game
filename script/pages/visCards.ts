@@ -1,5 +1,6 @@
-import hiddenCardsComponent from "./hidCards.js";
-import startingScreenComponent from "../index.js";
+import hiddenCardsComponent from "./hidCards";
+import startingScreenComponent from "../index";
+declare const window: any;
 const visibleCardsComponent = () => {
   window.cardsArray = [
     "6 бубны.png",
@@ -47,7 +48,7 @@ const visibleCardsComponent = () => {
             <div class="sec__label">sec</div>
             <div class="min">00</div>
             <div class="dot">.</div>
-            <div class="sec">00</div>
+            <div class="sec">05</div>
         </div>
         <div class="replay">
             <button class="replay__button">
@@ -57,12 +58,16 @@ const visibleCardsComponent = () => {
     </header>
     <div class="cards__container"></div>
 </div>`;
-  function shuffle(array) {
+  function shuffle(array: string[]) {
     array.sort(() => Math.random() - 0.5);
   }
-  const fillDesk = (number) => {
+  const countdown = () => {
+    document.querySelector(".sec").textContent =
+      "0" + String(Number(document.querySelector(".sec").textContent) - 1);
+  };
+  const fillDesk = (number: number) => {
     const container = document.querySelector(".cards__container");
-    const chosenCards = [];
+    const chosenCards: string[] = [];
     while (chosenCards.length < number / 2) {
       const pic =
         window.cardsArray[Math.floor(Math.random() * window.cardsArray.length)];
@@ -72,7 +77,6 @@ const visibleCardsComponent = () => {
     }
     window.gameArray = [...chosenCards, ...chosenCards];
     shuffle(window.gameArray);
-    console.log(window.gameArray);
     for (let i = 0; i < window.gameArray.length; i++) {
       const elem = document.createElement("img");
       elem.setAttribute("src", `./static/img/${window.gameArray[i]}`);
@@ -93,8 +97,13 @@ const visibleCardsComponent = () => {
     default:
       break;
   }
-  const timeout = setTimeout(hiddenCardsComponent, 5000);
+  const timer = setInterval(countdown, 1000);
+  const timeout = setTimeout(() => {
+    hiddenCardsComponent();
+    clearInterval(timer);
+  }, 5000);
   document.querySelector(".replay__button").addEventListener("click", () => {
+    clearInterval(timer);
     clearTimeout(timeout);
     startingScreenComponent();
   });

@@ -1,5 +1,6 @@
-import visibleCardsComponent from "./pages/visCards.js";
+import visibleCardsComponent from "./pages/visCards";
 import "../css/styles.css";
+declare const window: any;
 window.app = document.querySelector(".app");
 const startingScreenComponent = () => {
   document.querySelector(".app").innerHTML = `
@@ -27,18 +28,18 @@ const startingScreenComponent = () => {
         </div>`;
   const diffBox = document.querySelector(".diff__container");
   const diffButton = document.querySelector(".diff__button");
-  let currentDifficultyBlock;
-  const removeActivity = (block) => {
+  let currentDifficultyBlock: HTMLElement;
+  const removeActivity = (block: HTMLElement) => {
     if (!block) {
       return;
     }
     block.classList.remove("diff__active");
   };
-  const addActivity = (block) => {
+  const addActivity = (block: HTMLElement) => {
     block.classList.add("diff__active");
     window.difficulty = block.dataset.difficulty;
   };
-  const difficultyChoice = (event) => {
+  const difficultyChoice = (event: any) => {
     const target = event.target;
     if (target === diffBox) {
       return;
@@ -58,6 +59,14 @@ const startingScreenComponent = () => {
 };
 document.addEventListener("DOMContentLoaded", () => {
   startingScreenComponent();
+  document.querySelector(".winPopup__replay").addEventListener("click", () => {
+    document.querySelector(".winPopup__wrapper").classList.add("hidden");
+    startingScreenComponent();
+  });
+  document.querySelector(".lossPopup__replay").addEventListener("click", () => {
+    document.querySelector(".lossPopup__wrapper").classList.add("hidden");
+    startingScreenComponent();
+  });
 });
 
 export default startingScreenComponent;
