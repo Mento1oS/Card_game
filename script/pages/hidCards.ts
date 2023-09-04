@@ -1,5 +1,4 @@
 import startingScreenComponent from "../index";
-declare const window: any;
 const hiddenCardsComponent = () => {
   window.app.innerHTML = `<div class="cardTable center">
     <header class="header">
@@ -47,11 +46,12 @@ const hiddenCardsComponent = () => {
       : (minElement.textContent =
           "0" + String(Number(minElement.textContent) + 1));
   };
-  const checker = (event: any) => {
-    if (event.target.tagName !== "IMG") {
+  const checker = (event: MouseEvent) => {
+    const target = event.target as HTMLImageElement;
+    const tagName = target.tagName;
+    if (tagName !== "IMG") {
       return;
     }
-    const target = event.target;
     const index = Array.from(target.parentElement.children).indexOf(target);
     if (indexArray.includes(index)) {
       return;
@@ -87,13 +87,13 @@ const hiddenCardsComponent = () => {
     }
   };
   switch (window.difficulty) {
-    case "3":
+    case 3:
       fillDesk(18);
       break;
-    case "2":
+    case 2:
       fillDesk(12);
       break;
-    case "1":
+    case 1:
       fillDesk(6);
       break;
     default:

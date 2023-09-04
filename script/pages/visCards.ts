@@ -1,6 +1,5 @@
 import hiddenCardsComponent from "./hidCards";
 import startingScreenComponent from "../index";
-declare const window: any;
 const visibleCardsComponent = () => {
   window.cardsArray = [
     "6 бубны.png",
@@ -85,13 +84,13 @@ const visibleCardsComponent = () => {
     }
   };
   switch (window.difficulty) {
-    case "3":
+    case 3:
       fillDesk(18);
       break;
-    case "2":
+    case 2:
       fillDesk(12);
       break;
-    case "1":
+    case 1:
       fillDesk(6);
       break;
     default:

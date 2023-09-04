@@ -1,8 +1,15 @@
 import visibleCardsComponent from "./pages/visCards";
 import "../css/styles.css";
-declare const window: any;
+declare global {
+  interface Window{
+    app: HTMLElement;
+    difficulty: number;
+    gameArray: string[];
+    cardsArray: string[]
+  }}
 window.app = document.querySelector(".app");
 const startingScreenComponent = () => {
+  window.difficulty = 0;
   document.querySelector(".app").innerHTML = `
         <div class="diff__wrapper">
             <div class="diff">
@@ -37,10 +44,10 @@ const startingScreenComponent = () => {
   };
   const addActivity = (block: HTMLElement) => {
     block.classList.add("diff__active");
-    window.difficulty = block.dataset.difficulty;
+    window.difficulty = Number(block.dataset.difficulty);
   };
-  const difficultyChoice = (event: any) => {
-    const target = event.target;
+  const difficultyChoice = (event: MouseEvent) => {
+    const target = event.target as HTMLImageElement;
     if (target === diffBox) {
       return;
     }
