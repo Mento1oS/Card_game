@@ -12,7 +12,7 @@ const hiddenCardsComponent = () => {
         </div>
         <div class="replay">
             <button class="replay__button">
-                Начать заново!
+                Начать заново
             </button>
         </div>
     </header>
