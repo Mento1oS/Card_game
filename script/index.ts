@@ -1,7 +1,15 @@
-import visibleCardsComponent from "./pages/visCards.js";
+import visibleCardsComponent from "./pages/visCards";
 import "../css/styles.css";
+declare global {
+  interface Window{
+    app: HTMLElement;
+    difficulty: number;
+    gameArray: string[];
+    cardsArray: string[]
+  }}
 window.app = document.querySelector(".app");
 const startingScreenComponent = () => {
+  window.difficulty = 0;
   document.querySelector(".app").innerHTML = `
         <div class="diff__wrapper">
             <div class="diff">
@@ -27,19 +35,19 @@ const startingScreenComponent = () => {
         </div>`;
   const diffBox = document.querySelector(".diff__container");
   const diffButton = document.querySelector(".diff__button");
-  let currentDifficultyBlock;
-  const removeActivity = (block) => {
+  let currentDifficultyBlock: HTMLElement;
+  const removeActivity = (block: HTMLElement) => {
     if (!block) {
       return;
     }
     block.classList.remove("diff__active");
   };
-  const addActivity = (block) => {
+  const addActivity = (block: HTMLElement) => {
     block.classList.add("diff__active");
-    window.difficulty = block.dataset.difficulty;
+    window.difficulty = Number(block.dataset.difficulty);
   };
-  const difficultyChoice = (event) => {
-    const target = event.target;
+  const difficultyChoice = (event: MouseEvent) => {
+    const target = event.target as HTMLImageElement;
     if (target === diffBox) {
       return;
     }
@@ -58,6 +66,14 @@ const startingScreenComponent = () => {
 };
 document.addEventListener("DOMContentLoaded", () => {
   startingScreenComponent();
+  document.querySelector(".winPopup__replay").addEventListener("click", () => {
+    document.querySelector(".winPopup__wrapper").classList.add("hidden");
+    startingScreenComponent();
+  });
+  document.querySelector(".lossPopup__replay").addEventListener("click", () => {
+    document.querySelector(".lossPopup__wrapper").classList.add("hidden");
+    startingScreenComponent();
+  });
 });
 
 export default startingScreenComponent;
