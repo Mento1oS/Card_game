@@ -28,7 +28,7 @@ const startingScreenComponent = () => {
                         3
                     </div>
                 </div>
-                <div class="button__container">
+                <div class="button-container">
                     <button class="diff__button">Старт</button>
                 </div>
             </div>
@@ -66,12 +66,12 @@ const startingScreenComponent = () => {
 };
 document.addEventListener("DOMContentLoaded", () => {
   startingScreenComponent();
-  document.querySelector(".winPopup__replay").addEventListener("click", () => {
-    document.querySelector(".winPopup__wrapper").classList.add("hidden");
+  document.querySelector(".win-popup__replay").addEventListener("click", () => {
+    document.querySelector(".win-popup__wrapper").classList.add("hidden");
     startingScreenComponent();
   });
-  document.querySelector(".lossPopup__replay").addEventListener("click", () => {
-    document.querySelector(".lossPopup__wrapper").classList.add("hidden");
+  document.querySelector(".loss-popup__replay").addEventListener("click", () => {
+    document.querySelector(".loss-popup__wrapper").classList.add("hidden");
     startingScreenComponent();
   });
 });

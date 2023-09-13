@@ -1,6 +1,6 @@
 import startingScreenComponent from "../index";
 const hiddenCardsComponent = () => {
-  window.app.innerHTML = `<div class="cardTable center">
+  window.app.innerHTML = `<div class="card-table center">
     <header class="header">
         <div class="timer">
             <div class="min__label">min</div>
@@ -28,7 +28,7 @@ const hiddenCardsComponent = () => {
     for (let i = 0; i < number; i++) {
       const elem = document.createElement("img");
       elem.setAttribute("src", `./static/img/рубашка.png`);
-      elem.classList.add("card__pic");
+      elem.classList.add("card-pic");
       container.appendChild(elem);
     }
   };
@@ -67,10 +67,10 @@ const hiddenCardsComponent = () => {
         if (attempt === window.gameArray.length) {
           clearInterval(secTimer);
           clearInterval(minTimer);
-          document.querySelector(".winPopup__time").textContent =
+          document.querySelector(".win-popup__time").textContent =
             minElement.textContent + "." + secElement.textContent;
           document
-            .querySelector(".winPopup__wrapper")
+            .querySelector(".win-popup__wrapper")
             .classList.remove("hidden");
         }
         return;
@@ -78,10 +78,10 @@ const hiddenCardsComponent = () => {
         clearInterval(secTimer);
         clearInterval(minTimer);
         container.removeEventListener("click", checker);
-        document.querySelector(".lossPopup__time").textContent =
+        document.querySelector(".loss-popup__time").textContent =
           minElement.textContent + "." + secElement.textContent;
         document
-          .querySelector(".lossPopup__wrapper")
+          .querySelector(".loss-popup__wrapper")
           .classList.remove("hidden");
       }
     }
