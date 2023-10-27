@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "StratosSkyeng";
-  src: url(../statosskyeng-v1.001/fonts/stratosskyengweb-regular.woff);
+  font-family: StratosSkyeng;
+  src: url("../statosskyeng-v1.001/fonts/stratosskyengweb-regular.woff");
 }
 * {
   margin: 0;
@@ -39,7 +39,7 @@ body {
   align-items: center;
 }
 .diff__heading {
-  font-family: "StratosSkyeng";
+  font-family: StratosSkyeng;
   font-style: normal;
   font-weight: 400;
   font-size: 40px;
@@ -51,7 +51,7 @@ body {
   padding-bottom: 48px;
 }
 .diff__container {
-  font-family: "StratosSkyeng";
+  font-family: StratosSkyeng;
   display: flex;
   gap: 24px;
   justify-content: center;
@@ -60,9 +60,9 @@ body {
 .diff__option {
   width: 98px;
   height: 98px;
-  background: #ffffff;
+  background: #fff;
   border-radius: 12px;
-  font-family: "StratosSkyeng";
+  font-family: StratosSkyeng;
   font-style: normal;
   font-weight: 400;
   font-size: 64px;
@@ -74,7 +74,7 @@ body {
   transition: all 0.3s ease;
 }
 .diff__option:hover {
-  box-shadow: inset 0px 0px 2px 2px black;
+  box-shadow: inset 0 0 2px 2px black;
   cursor: pointer;
   color: #004980;
 }
@@ -86,29 +86,29 @@ body {
   border: none;
   width: 246px;
   height: 50px;
-  font-family: "StratosSkyeng";
+  font-family: StratosSkyeng;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
   font-feature-settings: "pnum" on, "lnum" on;
-  color: #ffffff;
+  color: #fff;
   background: #7ac100;
   border-radius: 12px;
 }
 .diff__button:hover {
   color: #f0f0f1;
-  box-shadow: inset 0px 0px 4px 4px rgba(255, 255, 255, 0.366);
+  box-shadow: inset 0 0 4px 4px rgba(255, 255, 255, 0.366);
   cursor: pointer;
 }
 .diff__active {
-  box-shadow: inset 0px 0px 1px 1px black;
+  box-shadow: inset 0 0 1px 1px black;
   cursor: pointer;
-  color: #000000;
+  color: #000;
   background: #f0f0f1;
 }
 
-.button__container {
+.button-container {
   text-align: center;
   padding-bottom: 50px;
 }
@@ -118,8 +118,8 @@ body {
   padding-right: calc(50% - 600px);
 }
 
-.cardTable {
-  font-family: "StratosSkyeng";
+.card-table {
+  font-family: StratosSkyeng;
 }
 
 .header {
@@ -174,19 +174,19 @@ body {
   border: none;
   width: 246px;
   height: 50px;
-  font-family: "StratosSkyeng";
+  font-family: StratosSkyeng;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
   font-feature-settings: "pnum" on, "lnum" on;
-  color: #ffffff;
+  color: #fff;
   background: #7ac100;
   border-radius: 12px;
 }
 .replay__button:hover {
   color: #f0f0f1;
-  box-shadow: inset 0px 0px 4px 4px rgba(255, 255, 255, 0.366);
+  box-shadow: inset 0 0 4px 4px rgba(255, 255, 255, 0.366);
   cursor: pointer;
 }
 
@@ -194,19 +194,18 @@ body {
   width: 100%;
   padding-top: 50px;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   gap: 43px;
   row-gap: 43px;
-  flex-wrap: wrap;
 }
 
-.card__pic {
+.card-pic {
   height: 133px;
   cursor: pointer;
 }
 
-.winPopup,
-.lossPopup {
+.win-popup,
+.loss-popup {
   background: #c2f5ff;
   border-radius: 12px;
   min-width: 480px;
@@ -214,47 +213,47 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.winPopup__wrapper,
-.lossPopup__wrapper {
+.win-popup__wrapper,
+.loss-popup__wrapper {
   top: 0;
   position: absolute;
 }
-.winPopup__pic,
-.lossPopup__pic {
+.win-popup__pic,
+.loss-popup__pic {
   padding-top: 26px;
   text-align: center;
 }
-.winPopup__heading,
-.lossPopup__heading {
+.win-popup__heading,
+.loss-popup__heading {
   padding-top: 9px;
   font-family: StratosSkyeng;
   font-size: 40px;
   font-weight: 400;
   line-height: 48px;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   color: #004980;
 }
-.winPopup__timeLabel,
-.lossPopup__timeLabel {
+.win-popup__timeLabel,
+.loss-popup__timeLabel {
   font-family: StratosSkyeng;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
-  letter-spacing: 0em;
-  color: #000000;
+  letter-spacing: 0;
+  color: #000;
 }
-.winPopup__time,
-.lossPopup__time {
+.win-popup__time,
+.loss-popup__time {
   padding-top: 10px;
   font-family: StratosSkyeng;
   font-size: 64px;
   font-weight: 400;
   line-height: 72px;
-  letter-spacing: 0px;
-  color: #000000;
+  letter-spacing: 0;
+  color: #000;
 }
-.winPopup__container,
-.lossPopup__container {
+.win-popup__container,
+.loss-popup__container {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -262,8 +261,8 @@ body {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
 }
-.winPopup__replay,
-.lossPopup__replay {
+.win-popup__replay,
+.loss-popup__replay {
   margin-top: 40px;
   margin-bottom: 74px;
   outline: none;
@@ -273,26 +272,26 @@ body {
   border: none;
   width: 246px;
   height: 50px;
-  font-family: "StratosSkyeng";
+  font-family: StratosSkyeng;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
   font-feature-settings: "pnum" on, "lnum" on;
-  color: #ffffff;
+  color: #fff;
   background: #7ac100;
   border-radius: 12px;
 }
-.winPopup__replay:hover,
-.lossPopup__replay:hover {
+.win-popup__replay:hover,
+.loss-popup__replay:hover {
   color: #f0f0f1;
-  box-shadow: inset 0px 0px 4px 4px rgba(255, 255, 255, 0.366);
+  box-shadow: inset 0 0 4px 4px rgba(255, 255, 255, 0.366);
   cursor: pointer;
 }
 
 .button-6 {
   align-items: center;
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
@@ -300,7 +299,7 @@ body {
   color: rgba(0, 0, 0, 0.85);
   cursor: pointer;
   display: inline-flex;
-  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -311,9 +310,9 @@ body {
   position: relative;
   text-decoration: none;
   transition: all 250ms;
-  -moz-user-select: none;
-       user-select: none;
   -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
   width: auto;

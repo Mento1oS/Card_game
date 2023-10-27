@@ -39,7 +39,7 @@ const visibleCardsComponent = () => {
     "король черви.png",
     "туз черви.png",
   ];
-  window.app.innerHTML = `<div class="cardTable center">
+  window.app.innerHTML = `<div class="card-table center">
     <header class="header">
         <div class="timer">
             <div class="min__label">min</div>
@@ -79,7 +79,7 @@ const visibleCardsComponent = () => {
     for (let i = 0; i < window.gameArray.length; i++) {
       const elem = document.createElement("img");
       elem.setAttribute("src", `./static/img/${window.gameArray[i]}`);
-      elem.classList.add("card__pic");
+      elem.classList.add("card-pic");
       container.appendChild(elem);
     }
   };
